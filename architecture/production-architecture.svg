@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555"/>
+    </marker>
+    <style>
+      .title{font:700 34px Arial,sans-serif;fill:#222}
+      .sub{font:400 18px Arial,sans-serif;fill:#666}
+      .box{fill:#fff;stroke:#c9c9c9;stroke-width:2;rx:16}
+      .edge{fill:#fff7f9;stroke:#ff385c;stroke-width:2;rx:16}
+      .data{fill:#f7f7f7;stroke:#999;stroke-width:2;rx:16}
+      .label{font:700 19px Arial,sans-serif;fill:#222;text-anchor:middle}
+      .small{font:400 15px Arial,sans-serif;fill:#555;text-anchor:middle}
+      .line{stroke:#555;stroke-width:2.2;fill:none;marker-end:url(#arrow)}
+      .dash{stroke:#999;stroke-width:2;stroke-dasharray:8 7;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="white"/>
+  <text x="80" y="65" class="title">Production Architecture — Airbnb Listing Experience</text>
+  <text x="80" y="98" class="sub">Target architecture for a production deployment; the take-home implementation is frontend-only.</text>
+
+  <rect x="90" y="165" width="210" height="100" class="box"/>
+  <text x="195" y="205" class="label">Desktop Users</text>
+  <text x="195" y="236" class="small">Browser · Keyboard · A11y</text>
+
+  <rect x="400" y="150" width="245" height="130" class="edge"/>
+  <text x="522" y="193" class="label">CDN / Edge</text>
+  <text x="522" y="223" class="small">TLS · caching · WAF</text>
+  <text x="522" y="247" class="small">image/static delivery</text>
+
+  <rect x="755" y="145" width="290" height="140" class="edge"/>
+  <text x="900" y="188" class="label">Next.js Web App</text>
+  <text x="900" y="219" class="small">SSR / static UI</text>
+  <text x="900" y="243" class="small">listing · photo tour · lightbox</text>
+  <text x="900" y="267" class="small">accessibility · analytics hooks</text>
+
+  <rect x="1170" y="160" width="250" height="110" class="box"/>
+  <text x="1295" y="202" class="label">Object Storage</text>
+  <text x="1295" y="232" class="small">photos · thumbnails · CDN origin</text>
+
+  <path d="M300 215 H400" class="line"/>
+  <path d="M645 215 H755" class="line"/>
+  <path d="M1045 215 H1170" class="dash"/>
+
+  <rect x="690" y="365" width="420" height="86" class="box"/>
+  <text x="900" y="399" class="label">API Gateway / BFF</text>
+  <text x="900" y="427" class="small">authn/z · rate limits · request validation · aggregation</text>
+  <path d="M900 285 V365" class="line"/>
+
+  <g>
+    <rect x="130" y="535" width="210" height="105" class="box"/>
+    <text x="235" y="574" class="label">Identity</text>
+    <text x="235" y="603" class="small">sessions · profiles</text>
+
+    <rect x="390" y="535" width="210" height="105" class="box"/>
+    <text x="495" y="574" class="label">Listings</text>
+    <text x="495" y="603" class="small">properties · amenities</text>
+
+    <rect x="650" y="535" width="210" height="105" class="box"/>
+    <text x="755" y="574" class="label">Availability</text>
+    <text x="755" y="603" class="small">calendar · pricing</text>
+
+    <rect x="910" y="535" width="210" height="105" class="box"/>
+    <text x="1015" y="574" class="label">Bookings</text>
+    <text x="1015" y="603" class="small">reservations · payments</text>
+
+    <rect x="1170" y="535" width="210" height="105" class="box"/>
+    <text x="1275" y="574" class="label">Reviews / Search</text>
+    <text x="1275" y="603" class="small">ratings · geo · discovery</text>
+  </g>
+
+  <path d="M780 451 C650 485 300 485 235 535" class="line"/>
+  <path d="M830 451 C720 490 560 490 495 535" class="line"/>
+  <path d="M890 451 C850 490 790 490 755 535" class="line"/>
+  <path d="M960 451 C990 490 1000 490 1015 535" class="line"/>
+  <path d="M1020 451 C1120 485 1240 490 1275 535" class="line"/>
+
+  <rect x="170" y="740" width="260" height="105" class="data"/>
+  <text x="300" y="778" class="label">PostgreSQL</text>
+  <text x="300" y="807" class="small">primary + read replicas</text>
+
+  <rect x="500" y="740" width="220" height="105" class="data"/>
+  <text x="610" y="778" class="label">Redis</text>
+  <text x="610" y="807" class="small">cache · sessions · locks</text>
+
+  <rect x="790" y="740" width="245" height="105" class="data"/>
+  <text x="912" y="778" class="label">Search Index</text>
+  <text x="912" y="807" class="small">OpenSearch / Elasticsearch</text>
+
+  <rect x="1100" y="720" width="330" height="145" class="data"/>
+  <text x="1265" y="758" class="label">Async + Observability</text>
+  <text x="1265" y="789" class="small">queue / workers · email</text>
+  <text x="1265" y="813" class="small">logs · metrics · traces · alerts</text>
+  <text x="1265" y="837" class="small">CI/CD · autoscaling · health checks</text>
+
+  <path d="M495 640 C480 690 380 700 300 740" class="line"/>
+  <path d="M755 640 C700 690 650 705 610 740" class="line"/>
+  <path d="M1275 640 C1160 690 1010 705 912 740" class="line"/>
+  <path d="M1015 640 C1090 675 1170 690 1240 720" class="dash"/>
+  <path d="M755 640 C870 680 1070 690 1200 720" class="dash"/>
+</svg>
