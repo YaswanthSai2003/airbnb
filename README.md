@@ -2,6 +2,10 @@
 
 Desktop-focused recreation of the provided Airbnb listing reference, built as an original Next.js application with a focus on visual fidelity, interaction parity, accessibility, and clean project structure.
 
+## Live Demo
+
+[Live](https://airbnb-one-rouge.vercel.app/)
+
 ## Stack
 
 * Next.js 16 / React 19
